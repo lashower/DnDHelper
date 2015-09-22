@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lashower.dd.dice.DiceController">
+   <children>
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="handicap" layoutX="39.0" layoutY="18.0" mnemonicParsing="false" text="Roll Handicap">
+					<tooltip>
+						<Tooltip text="Enabling this has the system run two random number generators and gives you the greater value." />
+					</tooltip>
+				</CheckBox>
+				<Button fx:id="rollButton" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" text="Roll" />
+			</children>
+		</AnchorPane>
+				<GridPane layoutX="702.0" layoutY="40.0" prefHeight="165.0" prefWidth="265.0">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<TextField fx:id="diceName" text="Dice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<TextField fx:id="diceMax" text="20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+						<TextField fx:id="diceMod" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+						<Label text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+						<Label text="Max Value" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+						<Label text="Modifier" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+						<TextField fx:id="diceId" visible="false" />
+						<CheckBox fx:id="diceDisable" mnemonicParsing="false" prefHeight="17.0" prefWidth="73.0" text="Locked" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <CheckBox fx:id="noReset" mnemonicParsing="false" text="Keep Values" GridPane.halignment="CENTER" />
+            <Label text="Roll Count" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="diceRollCount" text="1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Type" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="diceType" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+					</children>
+				</GridPane>
+				<TableView fx:id="diceTable" editable="true" layoutX="30.0" layoutY="40.0" prefHeight="550.0" prefWidth="650.0" tableMenuButtonVisible="true">
+					<columns>
+						<TableColumn fx:id="tableDisable" prefWidth="56.0" text="Lock" />
+						<TableColumn fx:id="tableName" prefWidth="175.0" text="Name" />
+            <TableColumn fx:id="tableType" prefWidth="124.0" text="Type" />
+						<TableColumn fx:id="tableMax" minWidth="3.0" prefWidth="89.0" text="Dice" />
+						<TableColumn fx:id="tableMod" prefWidth="78.0" text="Modifier" />
+						<TableColumn fx:id="tableRoll" prefWidth="127.0" text="Roll Value" />
+					</columns>
+				</TableView>
+      <GridPane layoutX="30.0" layoutY="590.0" prefHeight="58.0" prefWidth="650.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" text="Total" />
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Average" textAlignment="CENTER" GridPane.columnIndex="1" />
+            <Label text="Minimum" GridPane.columnIndex="2" />
+            <Label text="Maximum" GridPane.columnIndex="3" />
+            <TextField fx:id="totalBox" editable="false" GridPane.rowIndex="1" />
+            <TextField fx:id="averageBox" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="minBox" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="maxBox" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+				<TableView fx:id="historyTable" layoutX="702.0" layoutY="245.0" prefHeight="342.0" prefWidth="265.0">
+					<columns>
+						<TableColumn prefWidth="122.0" text="Date" />
+						<TableColumn prefWidth="72.0" text="Roll" />
+						<TableColumn prefWidth="75.0" text="Mod" />
+					</columns>
+				</TableView>
+				<ButtonBar layoutX="702.0" layoutY="205.0" prefHeight="40.0" prefWidth="200.0">
+					<buttons>
+						<Button fx:id="diceAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Add" />
+						<Button fx:id="diceUpdate" mnemonicParsing="false" text="Update" />
+						<Button fx:id="diceDelete" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Delete" />
+					</buttons>
+				</ButtonBar>
+	</children>
+</Pane>
